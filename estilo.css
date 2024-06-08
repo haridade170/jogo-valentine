@@ -1,0 +1,14 @@
+@font-face {
+    font-family: 'lemonmilk';
+    src: url('fonts/lemonmilk.otf') format('truetype');
+}
+
+html, body{
+    background-image: url(vd.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: Arial, Helvetica, sans-serif medium;
+    font-family: 'lemonmilk', sans-serif;
+    color: white;
+    font-size: medium;
+}

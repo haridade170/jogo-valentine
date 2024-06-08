@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joguinho muahahahahah</title>
+    <link rel="stylesheet" href="estilo.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden; /* Para evitar barras de rolagem quando o botão se mover */
+        }
+        .container {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px; /* Para dar espaço entre a pergunta e os botões */
+           
+        }
+        p {
+            font-size: 24px;
+            margin: 0;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            border-width: 2px;
+            background-color: rgba(0, 0, 0, 0.596);
+            color: white;
+            font-size: 14px;
+            border-color: rgba(255, 255, 255, 0.534);
+        }
+        #botaoDireita {
+            position: relative;
+        }
+
+        .mensagem {
+            display: none;
+            margin-top: 20px;
+            font-size: 20px;
+            color: rgb(199, 58, 58);
+        }
+    </style>
+</head>
+<body>
+    <p id="pergunta">quem ama mais?</p>
+    <div class="container" id="opcoes">
+        <button id="botaoEsquerda">Ariel</button>
+        <button id="botaoDireita">Malu</button>
+    </div>
+
+    <div class="mensagem" id="mensagem">muahaahahahhaajajajajajajaa te amo gatinha!</div>
+
+    <script>
+        const botaoDireita = document.getElementById('botaoDireita');
+
+        botaoDireita.addEventListener('mouseover', () => {
+            const bodyRect = document.body.getBoundingClientRect();
+            const buttonRect = botaoDireita.getBoundingClientRect();
+            
+            let newTop, newLeft;
+            do {
+                newTop = Math.random() * (window.innerHeight - buttonRect.height);
+                newLeft = Math.random() * (window.innerWidth - buttonRect.width);
+            } while (
+                newTop < 0 ||
+                newTop > bodyRect.height - buttonRect.height ||
+                newLeft < 0 ||
+                newLeft > bodyRect.width - buttonRect.width
+            );
+
+            botaoDireita.style.position = 'absolute';
+            botaoDireita.style.top = `${newTop}px`;
+            botaoDireita.style.left = `${newLeft}px`;
+        });
+
+        botaoEsquerda.addEventListener('click', () => {
+            mensagem.style.display = 'block';
+            pergunta.style.display = 'none';
+            opcoes.style.display = 'none';
+        })
+    </script>
+</body>
+</html>
